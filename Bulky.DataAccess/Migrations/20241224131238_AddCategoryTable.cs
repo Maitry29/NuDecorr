@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace NuDecorr.Migrations
+namespace NuDecorr.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoryTable : Migration

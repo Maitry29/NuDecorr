@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NuDecorr.Models;
 
-namespace NuDecorr.Data
+namespace NuDecorr.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

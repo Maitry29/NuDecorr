@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using NuDecorr.Data;
+using NuDecorr.DataAccess.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -5,65 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - NuDecorr</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/[lux]/bootstrap.min.css">
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NuDecorr.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">NuDecor</a>
-                </div>
+                <!-- Brand -->
+                <a class="navbar-brand fw-bold text-light" asp-controller="Home" asp-action="Index">NuDecor</a>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                    <ul class="nav navbar-nav">
-                        <li class="">
-                            <a class=" active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                <!-- Toggler for responsive behavior -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collapsible Content -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav me-auto">
+                        <!-- Home Link -->
                         <li class="nav-item">
-                            <a class="# " asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
+                        <!-- Category Link -->
                         <li class="nav-item">
-                            <a class="# " asp-area="" asp-controller="Home" asp-action="Furniture">Furniture</a>
+                            <a class="nav-link" asp-controller="Category" asp-action="Index">Category</a>
                         </li>
+
+                        <!-- About Link -->
                         <li class="nav-item">
-                            <a class="# " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-controller="Product" asp-action="Index">Furniture</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+
+                        <!-- Dropdown Menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" asp-controller="Action" asp-action="Index">Action</a></li>
+                                <li><a class="dropdown-item" asp-controller="AnotherAction" asp-action="Index">Another Action</a></li>
+                                <li><a class="dropdown-item" href="#">Something Else</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated Link</a></li>
                             </ul>
                         </li>
                     </ul>
-                    
+
+                    <!-- Optional Additional Items (e.g., Login or Search) -->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
+
+
        
            
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <partial name="_Notification" />
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer bg-primary text-muted">
+    <footer class="border-top footer bg-dark text-white">
         <div class="container text-center">
             &copy; 2024 - Made with <i class="bi bi-heart-fill"></i> By NuDecor.
         </div>
