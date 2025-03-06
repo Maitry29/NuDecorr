@@ -30,30 +30,24 @@
                     <ul class="navbar-nav me-auto">
                         <!-- Home Link -->
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
-                        <!-- Category Link -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Category" asp-action="Index">Category</a>
-                        </li>
-
+                       
                         <!-- About Link -->
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Product" asp-action="Index">Furniture</a>
+                            <a class="nav-link" asp-area="Customer" asp-controller="Furniture" asp-action="Index">Furniture</a>
                         </li>
 
                         <!-- Dropdown Menu -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                More
+                                Content Management
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" asp-controller="Action" asp-action="Index">Action</a></li>
-                                <li><a class="dropdown-item" asp-controller="AnotherAction" asp-action="Index">Another Action</a></li>
-                                <li><a class="dropdown-item" href="#">Something Else</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Separated Link</a></li>
+                                <!-- Category Link -->
+                                <li class="dropdown-item"><a class="nav-link " asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a></li>
+                               
                             </ul>
                         </li>
                     </ul>

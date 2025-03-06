@@ -1,22 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NuDecorr.DataAccess.Data;
+using NuDecorr.DataAccess.Repository.IRepository;
 using NuDecorr.Models;
 
 
-namespace NuDecorr.Controllers
+
+namespace NuDecorr.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _db;
-        public CategoryController(ApplicationDbContext db)
+
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _db.categories.ToList();
-            return View(objCategoryList);
+            List<Category> objCategoryList = _unitOfWork.Category.GetAll().ToList();
+            return View("~/Areas/Admin/Views/Category/Index.cshtml", objCategoryList);
+
         }
+
 
         public IActionResult Create()
         {
@@ -37,8 +43,8 @@ namespace NuDecorr.Controllers
             //}
             if (ModelState.IsValid)
             {
-                _db.categories.Add(obj);
-                _db.SaveChanges();
+                _unitOfWork.Category.Add(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Category Created successfully";
                 return RedirectToAction("Index");
             }
@@ -53,8 +59,8 @@ namespace NuDecorr.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _db.categories.Find(id);
-           if(categoryFromDb ==null )
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }
@@ -66,8 +72,8 @@ namespace NuDecorr.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.categories.Update(obj);
-                _db.SaveChanges();
+                _unitOfWork.Category.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Category Updated successfully";
                 return RedirectToAction("Index");
             }
@@ -80,7 +86,7 @@ namespace NuDecorr.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _db.categories.Find(id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -88,19 +94,19 @@ namespace NuDecorr.Controllers
             return View(categoryFromDb);
         }
 
-        [HttpPost ,ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            Category? obj = _db.categories.Find(id);
+            Category? obj = _unitOfWork.Category.Get(u => u.Id == id);
             if (obj == null)
             {
                 return NotFound();
             }
-            _db.categories.Remove(obj);
-            _db.SaveChanges();
+            _unitOfWork.Category.Remove(obj);
+            _unitOfWork.Save();
             TempData["success"] = "Category Deleted successfully";
             return RedirectToAction("Index");
         }
-        
+
     }
 }

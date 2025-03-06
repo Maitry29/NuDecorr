@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace NuDecorr.Controllers
+namespace NuDecorr.Areas.Customer.Controllers
 {
     public class FurnitureController : Controller
     {
