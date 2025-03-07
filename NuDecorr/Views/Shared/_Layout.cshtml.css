@@ -7,9 +7,9 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-/*a {
-  color: #0077cc;
-}*/
+a {
+    color: rgba(155, 157, 158, 1);
+}
 
 .btn-primary {
   color: #fff;
@@ -23,8 +23,9 @@ a.navbar-brand {
   border-color: #1861ac;
 }
 
+
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
