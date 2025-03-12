@@ -1,7 +1,11 @@
-﻿using NuDecorr.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using NuDecorr.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices;
 
+
+[Bind("CategoryID, Price, Title, ImageURL, Description")]
 public class Product
 {
     [Key]
@@ -19,8 +23,8 @@ public class Product
     [Column(TypeName = "decimal(18,2)")]
     public decimal Price { get; set; }
 
-    [Required]
-    public int CategoryID { get; set; } // Foreign Key
+    
+   // public int CategoryID { get; set; } // Foreign Key
 
     
     [StringLength(500)]
@@ -28,7 +32,7 @@ public class Product
 
    
 
-    // Navigation Property
-    [ForeignKey("CategoryID")]
-    public virtual Category Category { get; set; }
+    //// Navigation Property
+    //[ForeignKey("CategoryID")]
+    //public virtual Category Category { get; set; }
 }

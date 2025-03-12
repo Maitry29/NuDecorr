@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using NuDecorr.DataAccess.Data;
 using NuDecorr.DataAccess.Repository.IRepository;
 using NuDecorr.Models;
-
-
+using System.Collections.Generic;
 
 namespace NuDecorr.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ProductController : Controller
     {
-
         private readonly IUnitOfWork _unitOfWork;
         public ProductController(IUnitOfWork unitOfWork)
         {
@@ -18,33 +17,42 @@ namespace NuDecorr.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            Console.WriteLine("Index method hit");
+          //  Console.WriteLine("Index method hit");
             List<Product> objProductList = _unitOfWork.Product.GetAll().ToList();
-            return View(objProductList);
+             // return View(objProductList);
+             return View("~/Areas/Admin/Views/Product/Index.cshtml", objProductList);
+
         }
-
-
 
 
         public IActionResult Create()
         {
+            //ViewBag.CatagoryList = _unitOfWork.Category.GetAll()
+            //    .Select(u => new SelectListItem
+            //    {
+            //        Text = u.Name,
+            //        Value = u.CategoryID.ToString()
+            //    })
+            //    .ToList();
+
             return View();
         }
 
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Product obj)
         {
-           
             if (ModelState.IsValid)
             {
+                Console.WriteLine("Product is being added!"); // Debugging
                 _unitOfWork.Product.Add(obj);
                 _unitOfWork.Save();
                 TempData["success"] = "Product Created successfully";
                 return RedirectToAction("Index");
             }
-            return View();
-
-
+            Console.WriteLine("ModelState is invalid"); // Debugging
+            return View(obj);
         }
 
         public IActionResult Edit(int? id)
@@ -64,20 +72,18 @@ namespace NuDecorr.Areas.Admin.Controllers
             return View(productFromDb);
         }
 
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(Product obj)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Product.Update(obj);  // Update product in DB
-                _unitOfWork.Save();  // Save changes
+                _unitOfWork.Product.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Product updated successfully";
-                return RedirectToAction("Index");  // Redirect back to product list
+                return RedirectToAction("Index");
             }
 
-            return View(obj);  // If ModelState is invalid, return to Edit page
+            return View(obj); // ✅ Pass back the model if ModelState is invalid
         }
 
 
@@ -108,6 +114,7 @@ namespace NuDecorr.Areas.Admin.Controllers
             TempData["success"] = "Product Deleted successfully";
             return RedirectToAction("Index");
         }
+
 
 
     }

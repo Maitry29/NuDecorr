@@ -6,7 +6,7 @@ namespace NuDecorr.Models
     public class Category
     {
         [Key]
-        public int Id { get; set; }
+        public int CategoryID { get; set; }
         [Required]
         [MaxLength(30)]
         [DisplayName("Category Name")]

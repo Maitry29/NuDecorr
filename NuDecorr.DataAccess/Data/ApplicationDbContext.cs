@@ -16,11 +16,11 @@ namespace NuDecorr.DataAccess.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
-               new Category { CategoryID = 1, Name = "Table", DisplayOrder = 1 },
-               new Category { CategoryID = 2, Name = "Chair", DisplayOrder = 2 },
-               new Category { CategoryID = 3, Name = "Sofa", DisplayOrder = 1 },
-               new Category { CategoryID = 4, Name = "Lamp", DisplayOrder = 3 },
-               new Category { CategoryID = 5, Name = "Bed", DisplayOrder = 1 }
+               new Category { Id = 1, Name = "Table", DisplayOrder = 1 },
+               new Category { Id = 2, Name = "Chair", DisplayOrder = 2 },
+               new Category { Id = 3, Name = "Sofa", DisplayOrder = 1 },
+               new Category { Id = 4, Name = "Lamp", DisplayOrder = 3 },
+               new Category { Id = 5, Name = "Bed", DisplayOrder = 1 }
             );
 
             modelBuilder.Entity<Product>().HasData(
@@ -30,7 +30,7 @@ namespace NuDecorr.DataAccess.Data
                Title = "Wooden Dining Table",
                Description = "A high-quality wooden dining table with a modern design.",
                Price = 19999.99m,
-               //CategoryID = 1,
+               CategoryID = 1,
                ImageURL = "https://example.com/images/dining-table.jpg"
            },
            new Product
@@ -39,7 +39,7 @@ namespace NuDecorr.DataAccess.Data
                Title = "Luxury Sofa Set",
                Description = "A comfortable and elegant sofa set for your living room.",
                Price = 29999.99m,
-              // CategoryID = 2,
+               CategoryID = 2,
                ImageURL = "https://example.com/images/sofa-set.jpg"
            },
            new Product
@@ -48,26 +48,17 @@ namespace NuDecorr.DataAccess.Data
                Title = "Office Chair",
                Description = "Ergonomic office chair with adjustable height and back support.",
                Price = 7999.99m,
-              // CategoryID = 3,
+               CategoryID = 3,
                ImageURL = "https://example.com/images/office-chair.jpg"
            },
            new Product
            {
                ProductID = 4,
                Title = "Lamp",
-               Description = "Ergonomic lamp with adjustable height.",
-               Price = 7999.99m,
-             //  CategoryID = 4,
-               ImageURL = "https://example.com/images/office-chair.jpg"
-           },
-           new Product
-           {
-               ProductID = 5,
-               Title = "Bed",
-               Description = "Comfortable bed with back support.",
-               Price = 7999.99m,
-              // CategoryID = 3,
-               ImageURL = "https://example.com/images/office-chair.jpg"
+               Description = "Ergonomic Lamp with adjustable height.",
+               Price = 1100.99m,
+               CategoryID = 4,
+               ImageURL = "https://examplle.com/images/office-chair.jpg"
            }
              );
         }

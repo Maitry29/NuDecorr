@@ -9,7 +9,7 @@
     </div>
 
     <div class="card-body p-4">
-        <form method="post" class="row">
+        <form form asp-action="Delete" method="post" class="row">
             <div class="border p-3">
                 <input asp-for="ProductID" hidden />
                 <div class="mb-3">
@@ -27,10 +27,10 @@
                     <input asp-for="Price" disabled class="form-control border-0 shadow" />
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="CategoryID" class="form-label"></label>
-                    <input asp-for="CategoryID" disabled class="form-control border-0 shadow" />
-                </div>
+                @* <div class="mb-3"> *@
+                @*     <label asp-for="CategoryID" class="form-label"></label> *@
+                @*     <input asp-for="CategoryID" disabled class="form-control border-0 shadow" /> *@
+                @* </div> *@
 
                 <div class="mb-3">
                     <label asp-for="ImageURL" class="form-label"></label>

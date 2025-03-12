@@ -52,14 +52,13 @@ namespace NuDecorr.Areas.Admin.Controllers
 
 
         }
-
         public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.CategoryID == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -79,14 +78,13 @@ namespace NuDecorr.Areas.Admin.Controllers
             }
             return View();
         }
-
         public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.CategoryID == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -97,7 +95,7 @@ namespace NuDecorr.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            Category? obj = _unitOfWork.Category.Get(u => u.Id == id);
+            Category? obj = _unitOfWork.Category.Get(u => u.CategoryID== id);
             if (obj == null)
             {
                 return NotFound();

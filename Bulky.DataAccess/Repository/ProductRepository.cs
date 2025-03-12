@@ -18,19 +18,31 @@ namespace NuDecorr.DataAccess.Repository
             _db = db;
         }
 
-
+               
         public void Update(Product obj)
         {
-            var productFromDb = _db.products.FirstOrDefault(p => p.ProductID == obj.ProductID);
+            //var productFromDb = _db.products.FirstOrDefault(p => p.ProductID == obj.ProductID);
 
-            if (productFromDb != null)
-            {
-                productFromDb.Title = obj.Title;
-                productFromDb.Description = obj.Description;
-                productFromDb.Price = obj.Price;
-                productFromDb.ImageURL = obj.ImageURL;
-            }
+            //if (productFromDb != null)
+            //{
+            //    productFromDb.Title = obj.Title;
+            //    productFromDb.Description = obj.Description;
+            //    productFromDb.Price = obj.Price;
+            //    productFromDb.ImageURL = obj.ImageURL;
+            //    //productFromDb.CategoryID = obj.CategoryID;
+
+            //    _db.SaveChanges(); // ✅ Save changes
+            //}
+
+            _db.products.Update(obj);
         }
 
-    }
+
+    
 }
+}
+    
+
+
+    
+
