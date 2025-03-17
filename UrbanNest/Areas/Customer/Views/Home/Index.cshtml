@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Home - UrbanNest";
+}
+
+
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="jumbotron text-center text-white"
+         style="background: rgba(0, 0, 0, 0.85) url('/images/furniture-bg.jpg') no-repeat center center/cover;
+            padding: 100px 20px;
+            border-radius: 10px;">
+        <h1 class="display-4 fw-bold text-warning">Welcome to UrbanNest!</h1>
+        <p class="lead text-light">Your one-stop destination for premium and elegant furniture.</p>
+        <a asp-controller="Shop" asp-action="Index" class="btn btn-lg btn-warning mt-3 text-dark fw-bold">Shop Now</a>
+    </div>
+
+
+    <!-- Featured Categories -->
+    <section class="mt-5">
+        <h2 class="text-center mb-4">Explore Our Collections</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="/images/living-room.jpg" class="img-fluid rounded shadow-lg" alt="Living Room Furniture">
+                <h4 class="mt-3">Living Room</h4>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-dark">View More</a>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="/images/bedroom.jpg" class="img-fluid rounded shadow-lg" alt="Bedroom Furniture">
+                <h4 class="mt-3">Bedroom</h4>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-dark">View More</a>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="/images/office.jpg" class="img-fluid rounded shadow-lg" alt="Office Furniture">
+                <h4 class="mt-3">Office</h4>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-dark">View More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="mt-5 p-4 bg-light rounded">
+        <h2 class="text-center">Why Choose UrbanNest?</h2>
+        <p class="text-center">At UrbanNest, we believe in quality, durability, and elegance. Explore our handcrafted, stylish, and premium furniture collections for your home and office.</p>
+        <div class="text-center mt-3">
+            <a asp-controller="About" asp-action="Index" class="btn btn-dark">Learn More</a>
+        </div>
+    </section>
+</div>
+
+<div class="container text-center mt-5">
+    @* <h1 class="display-4">Welcome to UrbanNest Furniture</h1> *@
+    @* <p class="lead text-muted">Discover elegance, comfort, and style for your home.</p> *@
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Luxury Sofas">
+                <div class="card-body">
+                    <h5 class="card-title">Luxury Sofas</h5>
+                    <p class="card-text">Explore our premium collection of stylish and comfortable sofas.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Elegant Dining Sets">
+                <div class="card-body">
+                    <h5 class="card-title">Elegant Dining Sets</h5>
+                    <p class="card-text">Find the perfect dining table set to enhance your home.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Modern Chairs">
+                <div class="card-body">
+                    <h5 class="card-title">Modern Chairs</h5>
+                    <p class="card-text">Comfortable and stylish chairs for every room.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Luxury Sofas">
+                <div class="card-body">
+                    <h5 class="card-title">Luxury Sofas</h5>
+                    <p class="card-text">Explore our premium collection of stylish and comfortable sofas.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Elegant Dining Sets">
+                <div class="card-body">
+                    <h5 class="card-title">Elegant Dining Sets</h5>
+                    <p class="card-text">Find the perfect dining table set to enhance your home.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Modern Chairs">
+                <div class="card-body">
+                    <h5 class="card-title">Modern Chairs</h5>
+                    <p class="card-text">Comfortable and stylish chairs for every room.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Luxury Sofas">
+                <div class="card-body">
+                    <h5 class="card-title">Luxury Sofas</h5>
+                    <p class="card-text">Explore our premium collection of stylish and comfortable sofas.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Elegant Dining Sets">
+                <div class="card-body">
+                    <h5 class="card-title">Elegant Dining Sets</h5>
+                    <p class="card-text">Find the perfect dining table set to enhance your home.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Modern Chairs">
+                <div class="card-body">
+                    <h5 class="card-title">Modern Chairs</h5>
+                    <p class="card-text">Comfortable and stylish chairs for every room.</p>
+                    <a href="#" class="btn btn-dark">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-5">
+        <a href="#" class="btn btn-lg btn-dark">Shop Now</a>
+    </div>
+</div>
