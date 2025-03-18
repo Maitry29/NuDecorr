@@ -10,7 +10,7 @@
 
     <div class="card-body p-4">
         <form asp-controller="Product" asp-action="Upsert" method="post" enctype="multipart/form-data" class="row container-fluid">
-            @Html.AntiForgeryToken()
+            @* @Html.AntiForgeryToken() *@
             <input asp-for="Product.ID" hidden />
             <input asp-for="Product.ImageURL" hidden />
             <div class="row">
