@@ -7,7 +7,7 @@
 namespace UrbanNest.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrationToDb : Migration
+    public partial class initialMigrationToDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,11 +66,11 @@ namespace UrbanNest.DataAccess.Migrations
                 columns: new[] { "ID", "CategoryId", "Description", "ImageURL", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, "A high-quality wooden dining table with a modern design.", "https://example.com/images/dining-table.jpg", 19999.99m, "Wooden Dining Table" },
-                    { 2, 2, "A comfortable and elegant sofa set for your living room.", "https://example.com/images/sofa-set.jpg", 29999.99m, "Luxury Sofa Set" },
-                    { 3, 3, "Ergonomic office chair with adjustable height and back support.", "https://example.com/images/office-chair.jpg", 7999.99m, "Office Chair" },
-                    { 4, 4, "Ergonomic lamp with adjustable height.", "https://example.com/images/office-chair.jpg", 7999.99m, "Lamp" },
-                    { 5, 3, "Comfortable bed with back support.", "https://example.com/images/office-chair.jpg", 7999.99m, "Bed" }
+                    { 1, 1, "A high-quality wooden dining table with a modern design.", "/images/products/Table.jpg", 19999.99m, "Wooden Dining Table" },
+                    { 2, 2, "A comfortable and elegant sofa set for your living room.", "/images/products/Sofa.jpg", 29999.99m, "Luxury Sofa Set" },
+                    { 3, 3, "Ergonomic office chair with adjustable height and back support.", "/images/products/Chair.jpg", 7999.99m, "Office Chair" },
+                    { 4, 4, "Ergonomic lamp with adjustable height.", "/images/products/Lamp.jpg", 7999.99m, "Lamp" },
+                    { 5, 3, "Comfortable bed with back support.", "/images/products/Bed.jpg", 7999.99m, "Bed" }
                 });
 
             migrationBuilder.CreateIndex(

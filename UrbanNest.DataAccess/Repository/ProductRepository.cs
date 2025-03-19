@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace UrbanNest.DataAccess.Repository
 {
@@ -30,14 +31,15 @@ namespace UrbanNest.DataAccess.Repository
                 productFromDb.Price = obj.Price;
                 productFromDb.CategoryId = obj.CategoryId;
 
-                if (obj.ImageURL != null)
+                if (!string.IsNullOrEmpty(obj.ImageURL))
                 {
                     productFromDb.ImageURL = obj.ImageURL; // Update Image URL only when a new image is uploaded
                 }
 
-                _db.products.Update(productFromDb); // ✅ Fix added to update entity
+                _db.Entry(productFromDb).State = EntityState.Modified; // ✅ Mark entity as modified
             }
         }
+
 
 
     }

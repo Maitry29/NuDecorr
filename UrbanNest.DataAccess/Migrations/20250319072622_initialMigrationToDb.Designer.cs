@@ -11,8 +11,8 @@ using UrbanNest.DataAccess.Data;
 namespace UrbanNest.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250317120001_InitialMigrationToDb")]
-    partial class InitialMigrationToDb
+    [Migration("20250319072622_initialMigrationToDb")]
+    partial class initialMigrationToDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,7 +65,7 @@ namespace UrbanNest.DataAccess.Migrations
                             ID = 1,
                             CategoryId = 1,
                             Description = "A high-quality wooden dining table with a modern design.",
-                            ImageURL = "https://example.com/images/dining-table.jpg",
+                            ImageURL = "/images/products/Table.jpg",
                             Price = 19999.99m,
                             Title = "Wooden Dining Table"
                         },
@@ -74,7 +74,7 @@ namespace UrbanNest.DataAccess.Migrations
                             ID = 2,
                             CategoryId = 2,
                             Description = "A comfortable and elegant sofa set for your living room.",
-                            ImageURL = "https://example.com/images/sofa-set.jpg",
+                            ImageURL = "/images/products/Sofa.jpg",
                             Price = 29999.99m,
                             Title = "Luxury Sofa Set"
                         },
@@ -83,7 +83,7 @@ namespace UrbanNest.DataAccess.Migrations
                             ID = 3,
                             CategoryId = 3,
                             Description = "Ergonomic office chair with adjustable height and back support.",
-                            ImageURL = "https://example.com/images/office-chair.jpg",
+                            ImageURL = "/images/products/Chair.jpg",
                             Price = 7999.99m,
                             Title = "Office Chair"
                         },
@@ -92,7 +92,7 @@ namespace UrbanNest.DataAccess.Migrations
                             ID = 4,
                             CategoryId = 4,
                             Description = "Ergonomic lamp with adjustable height.",
-                            ImageURL = "https://example.com/images/office-chair.jpg",
+                            ImageURL = "/images/products/Lamp.jpg",
                             Price = 7999.99m,
                             Title = "Lamp"
                         },
@@ -101,7 +101,7 @@ namespace UrbanNest.DataAccess.Migrations
                             ID = 5,
                             CategoryId = 3,
                             Description = "Comfortable bed with back support.",
-                            ImageURL = "https://example.com/images/office-chair.jpg",
+                            ImageURL = "/images/products/Bed.jpg",
                             Price = 7999.99m,
                             Title = "Bed"
                         });

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UrbanNest.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UrbanNest.DataAccess.Data
 {
@@ -31,7 +32,7 @@ namespace UrbanNest.DataAccess.Data
                Description = "A high-quality wooden dining table with a modern design.",
                Price = 19999.99m,
                CategoryId = 1,
-               ImageURL = "https://example.com/images/dining-table.jpg"
+               ImageURL = "/images/products/Table.jpg"  
            },
            new Product
            {
@@ -40,7 +41,7 @@ namespace UrbanNest.DataAccess.Data
                Description = "A comfortable and elegant sofa set for your living room.",
                Price = 29999.99m,
               CategoryId = 2,
-               ImageURL = "https://example.com/images/sofa-set.jpg"
+               ImageURL = "/images/products/Sofa.jpg"
            },
            new Product
            {
@@ -49,7 +50,7 @@ namespace UrbanNest.DataAccess.Data
                Description = "Ergonomic office chair with adjustable height and back support.",
                Price = 7999.99m,
                CategoryId = 3,
-               ImageURL = "https://example.com/images/office-chair.jpg"
+               ImageURL = "/images/products/Chair.jpg"
            },
            new Product
            {
@@ -58,7 +59,7 @@ namespace UrbanNest.DataAccess.Data
                Description = "Ergonomic lamp with adjustable height.",
                Price = 7999.99m,
                CategoryId = 4,
-               ImageURL = "https://example.com/images/office-chair.jpg"
+               ImageURL = "/images/products/Lamp.jpg"
            },
            new Product
            {
@@ -67,7 +68,7 @@ namespace UrbanNest.DataAccess.Data
                Description = "Comfortable bed with back support.",
                Price = 7999.99m,
                CategoryId = 3,
-               ImageURL = "https://example.com/images/office-chair.jpg"
+               ImageURL = "/images/products/Bed.jpg"
            }
              );
         }
