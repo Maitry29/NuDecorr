@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using UrbanNest.Models;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UrbanNest.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) : base(options)
         {
@@ -16,6 +18,8 @@ namespace UrbanNest.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Category>().HasData(
                new Category { ID = 1, Name = "Table", DisplayOrder = 1 },
                new Category { ID = 2, Name = "Chair", DisplayOrder = 2 },
@@ -74,3 +78,4 @@ namespace UrbanNest.DataAccess.Data
         }
     }
 }
+ 
