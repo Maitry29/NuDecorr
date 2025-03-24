@@ -7,7 +7,7 @@
 namespace UrbanNest.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigrationToDb : Migration
+    public partial class initialMigrationToDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

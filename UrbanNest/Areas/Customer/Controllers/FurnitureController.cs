@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NuDecorr.Utility;
+using UrbanNest.Utility;
 using System.Security.Claims;
 using UrbanNest.DataAccess.Repository;
 using UrbanNest.DataAccess.Repository.IRepository;
+using UrbanNest.Models;
 
 namespace UrbanNest.Areas.Customer.Controllers
 {

@@ -36,7 +36,7 @@ namespace UrbanNest.DataAccess.Repository
                     productFromDb.ImageURL = obj.ImageURL; // Update Image URL only when a new image is uploaded
                 }
 
-                _db.Entry(productFromDb).State = EntityState.Modified; // ✅ Mark entity as modified
+                _db.products.Update(productFromDb); // ✅ Mark entity as modified
             }
         }
 

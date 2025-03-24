@@ -1,4 +1,12 @@
-﻿@model IEnumerable<Product>
+﻿<style>
+    .card-img-top {
+        width: 100%; /* Ensures responsiveness */
+        height: 250px; /* Set a fixed height */
+        object-fit: initial; /* Ensures the image is scaled properly */
+    }
+</style>
+
+@model IEnumerable<Product>
 
 <div class="row pb-3">
     @foreach (var product in Model)
@@ -6,15 +14,7 @@
         <div class="col-lg-3 col-sm-6">
             <div class="row p-2">
                 <div class="col-12 p-1">
-                    <div class="card border-0 p-3 shadow  border-top border-5 rounded">
-                        @* @if (product.ProductImages != null && product.ProductImages.Count() > 0)  *@
-                        @*  { *@
-                        @*     <img src="@product.ProductImages.FirstOrDefault().ImageUrl" class="card-img-top rounded" /> *@
-                        @* }  *@
-                        @*  else *@
-                        @* { *@
-                        @*     <img src="https://placehold.co/500x600/png" class="card-img-top rounded" /> *@
-                        @* } *@
+                    <div class="card border-0 p-3 shadow border-top border-5 rounded">
                         <img src="@product.ImageURL" class="card-img-top rounded" />
                         <div class="card-body pb-0">
                             <div class="pl-1">
@@ -23,20 +23,12 @@
                             </div>
                             <div class="pl-1">
                                 <p class="text-dark text-opacity-75 text-center mb-0">
-                                     Price:
+                                    Price:
                                     <span>
                                         @product.Price.ToString("c")
                                     </span>
                                 </p>
                             </div>
-                            @* <div class="pl-1"> *@
-                            @*     <p class="text-dark text-opacity-75 text-center"> *@
-                            @*         As low as: *@
-                            @*         <span> *@
-                            @*             @product.Price100.ToString("c") *@
-                            @*         </span> *@
-                            @*     </p> *@
-                            @* </div> *@
                         </div>
                         <div>
                             <a asp-action="Details"

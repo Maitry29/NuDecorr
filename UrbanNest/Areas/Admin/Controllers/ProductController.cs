@@ -56,12 +56,11 @@ namespace UrbanNest.Areas.Admin.Controllers
         }
 
         [HttpPost]
-      //  [ValidateAntiForgeryToken]
-       
+        //  [ValidateAntiForgeryToken]
+
         public IActionResult Upsert(ProductVM productVM, IFormFile? file)
         {
             if (ModelState.IsValid)
-
             {
                 string webRootPath = _webHostEnvironment.WebRootPath;
 
@@ -73,7 +72,7 @@ namespace UrbanNest.Areas.Admin.Controllers
                     if (!string.IsNullOrEmpty(productVM.Product.ImageURL))
                     {
                         // Delete old image
-                        var oldImagePath = Path.Combine(webRootPath,productVM.Product.ImageURL.TrimStart('\\'));
+                        var oldImagePath = Path.Combine(webRootPath, productVM.Product.ImageURL.TrimStart('\\'));
                         if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
@@ -116,6 +115,10 @@ namespace UrbanNest.Areas.Admin.Controllers
                 return View(productVM);
             }
         }
+
+
+
+
 
 
 
