@@ -40,8 +40,8 @@
                             <a class="nav-link" asp-area="Customer" asp-controller="Furniture" asp-action="Index">Furniture</a>
                         </li>
 
-                        @if(User.IsInRole(SD.Role_Admin)) 
-                         {
+                        @* @if(User.IsInRole(SD.Role_Admin))  *@
+                        @*  { *@
                             <!-- Dropdown Menu -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -56,13 +56,15 @@
                                     <li class="dropdown-item">
                                         <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
                                     </li>
-
-
+                                    <li class="dropdown-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
 
                                 </ul>
 
                             </li>
-                        }
+                        @* } *@
                         
                        
                     </ul>

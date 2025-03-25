@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using UrbanNest.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UrbanNest.Models;
@@ -16,6 +17,7 @@ namespace UrbanNest.DataAccess.Data
         public DbSet<Category> categories { get; set; }
         public DbSet<Product> products { get; set; }
         public DbSet<ApplicationUser> applicationUsers { get; set; }
+        public DbSet<Company> companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +30,39 @@ namespace UrbanNest.DataAccess.Data
                new Category { ID = 4, Name = "Lamp", DisplayOrder = 3 },
                new Category { ID = 5, Name = "Bed", DisplayOrder = 1 }
             );
+
+            modelBuilder.Entity<Company>().HasData(
+               new Company
+               {
+                   Id = 1,
+                   Name = "Decorr Solution",
+                   StreetAddress = "123 Tech St",
+                   City = "Tech City",
+                   PostalCode = "12121",
+                   State = "IL",
+                   PhoneNumber = "6669990000"
+               },
+               new Company
+               {
+                   Id = 2,
+                   Name = "Homely",
+                   StreetAddress = "999 Vid St",
+                   City = "Vid City",
+                   PostalCode = "66666",
+                   State = "IL",
+                   PhoneNumber = "7779990000"
+               },
+               new Company
+               {
+                   Id = 3,
+                   Name = "Interior Club",
+                   StreetAddress = "999 Main St",
+                   City = "Lala land",
+                   PostalCode = "99999",
+                   State = "NY",
+                   PhoneNumber = "1113335555"
+               }
+               );
 
             modelBuilder.Entity<Product>().HasData(
            new Product
