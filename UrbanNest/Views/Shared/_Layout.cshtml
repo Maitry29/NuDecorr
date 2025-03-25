@@ -40,26 +40,30 @@
                             <a class="nav-link" asp-area="Customer" asp-controller="Furniture" asp-action="Index">Furniture</a>
                         </li>
 
-                        <!-- Dropdown Menu -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                Content Management
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <!-- Category Link -->
-                                
-                                <li class="dropdown-item">
-                                    <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
-                                </li>
-                               
+                        @if(User.IsInRole(SD.Role_Admin)) 
+                         {
+                            <!-- Dropdown Menu -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Content Management
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <!-- Category Link -->
 
-                               
-                            </ul>
-                            
-                        </li>
+                                    <li class="dropdown-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                                    </li>
+
+
+
+                                </ul>
+
+                            </li>
+                        }
+                        
                        
                     </ul>
 

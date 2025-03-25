@@ -1,13 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ICSharpCode.Decompiler.CSharp.Syntax;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UrbanNest.DataAccess.Data;
 using UrbanNest.DataAccess.Repository.IRepository;
 using UrbanNest.Models;
+using UrbanNest.Utility;
 
 
 
 namespace UrbanNest.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
 
