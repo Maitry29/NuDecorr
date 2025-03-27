@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using UrbanNest.Models;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UrbanNest.DataAccess.Data
@@ -18,6 +17,8 @@ namespace UrbanNest.DataAccess.Data
         public DbSet<Product> products { get; set; }
         public DbSet<ApplicationUser> applicationUsers { get; set; }
         public DbSet<Company> companies { get; set; }
+        public DbSet<ShoppingCart> shoppingCarts { get; set; }
+        public DbSet<ProductImage> productsImage { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

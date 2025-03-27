@@ -40,8 +40,7 @@ namespace UrbanNest.DataAccess.Repository
             }
         }
 
-
-
+        
     }
 }
     
