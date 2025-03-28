@@ -34,7 +34,7 @@ namespace UrbanNest.Areas.Customer.Controllers
                 ProductId = productId
             };
             return View(cart);
-    
+
         }
 
         [HttpPost]
@@ -83,5 +83,5 @@ namespace UrbanNest.Areas.Customer.Controllers
         //    //return View(product);
         //}   
     }
-    }
+}
 

@@ -11,7 +11,7 @@ using UrbanNest.Utility;
 namespace UrbanNest.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
 
@@ -99,7 +99,7 @@ namespace UrbanNest.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            Category? obj = _unitOfWork.Category.Get(u => u.ID== id);
+            Category? obj = _unitOfWork.Category.Get(u => u.ID == id);
             if (obj == null)
             {
                 return NotFound();

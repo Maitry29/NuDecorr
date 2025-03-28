@@ -19,6 +19,8 @@ namespace UrbanNest.DataAccess.Data
         public DbSet<Company> companies { get; set; }
         public DbSet<ShoppingCart> shoppingCarts { get; set; }
         public DbSet<ProductImage> productsImage { get; set; }
+        public DbSet<OrderHeader> orderHeaders { get; set; }
+        public DbSet<OrderDetail> orderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

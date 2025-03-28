@@ -14,11 +14,11 @@ using UrbanNest.Utility;
 namespace UrbanNest.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IWebHostEnvironment _webHostEnvironment;   
+        private readonly IWebHostEnvironment _webHostEnvironment;
         public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
@@ -26,10 +26,10 @@ namespace UrbanNest.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-          //  Console.WriteLine("Index method hit");
-            List<Product> objProductList = _unitOfWork.Product.GetAll(includeProperties:"Category").ToList();
-             // return View(objProductList);
-             return View("~/Areas/Admin/Views/Product/Index.cshtml", objProductList);
+            //  Console.WriteLine("Index method hit");
+            List<Product> objProductList = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
+            // return View(objProductList);
+            return View("~/Areas/Admin/Views/Product/Index.cshtml", objProductList);
 
         }
 
