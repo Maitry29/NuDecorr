@@ -26,28 +26,31 @@ namespace UrbanNest.Utility
         {
             try
             {
-                // Configure API Key
+                // Set up API key authentication
                 Configuration.Default.ApiKey["api-key"] = _apiKey;
 
                 var apiInstance = new TransactionalEmailsApi();
                 var emailData = new SendSmtpEmail
                 {
-                    Sender = new SendSmtpEmailSender(_senderName, _senderEmail),
-                    To = new List<SendSmtpEmailTo> { new SendSmtpEmailTo { Email = email } }, // Fixing incorrect initialization
+                    Sender = new SendSmtpEmailSender { Email = _senderEmail, Name = _senderName }, // Corrected Sender
+                    To = new List<SendSmtpEmailTo> { new SendSmtpEmailTo { Email = email, Name = "User" } }, // Corrected To field
                     Subject = subject,
                     HtmlContent = htmlMessage
                 };
 
+                // Send email
                 var response = await apiInstance.SendTransacEmailAsync(emailData);
-                Console.WriteLine($"Email sent successfully! Response: {response.MessageId}");
+
+                // Log success
+                Console.WriteLine($"✅ Email sent successfully! Response ID: {response.MessageId}");
             }
             catch (ApiException apiEx)
             {
-                Console.WriteLine($"Brevo API Error: {apiEx.Message}");
+                Console.WriteLine($"❌ Brevo API Error: {apiEx.ErrorCode} - {apiEx.Message}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"General Error: {ex.Message}");
+                Console.WriteLine($"❌ General Error: {ex.Message}");
             }
         }
     }

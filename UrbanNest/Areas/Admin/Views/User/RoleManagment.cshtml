@@ -1,0 +1,58 @@
+﻿@model RoleManagmentVM
+
+<div class="card shadow-lg border-0 mt-4">
+    <div class="card-header bg-primary text-white text-center py-3">
+        <h2 class="fw-bold">Manage User Role</h2>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row g-3">
+            <input asp-for="ApplicationUser.Id" hidden />
+
+            <div class="border p-4 rounded bg-light">
+                <div class="mb-3">
+                    <label asp-for="ApplicationUser.Name" class="form-label fw-semibold">User Name</label>
+                    <input asp-for="ApplicationUser.Name" readonly class="form-control shadow-sm bg-white border-0" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApplicationUser.Role" class="form-label fw-semibold">Select Role</label>
+                    <select asp-for="ApplicationUser.Role" asp-items="@Model.RoleList" class="form-select shadow-sm"></select>
+                </div>
+
+                @{
+                    var companyVisible = "d-none";
+                }
+                @if (Model.ApplicationUser.Role == SD.Role_Company)
+                {
+                    companyVisible = "";
+                }
+
+                <div class="mb-3 @companyVisible" id="companySection">
+                    <label asp-for="ApplicationUser.CompanyId" class="form-label fw-semibold">Select Company</label>
+                    <select asp-for="ApplicationUser.CompanyId" asp-items="@Model.CompanyList" class="form-select shadow-sm"></select>
+                </div>
+
+                <div class="d-flex gap-3 pt-2">
+                    <button type="submit" class="btn btn-primary px-4">Update Role</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $('#ApplicationUser_Role').change(function () {
+                var selection = $('#ApplicationUser_Role option:selected').text();
+                if (selection === 'Company') {
+                    $('#companySection').removeClass('d-none');
+                } else {
+                    $('#companySection').addClass('d-none');
+                }
+            });
+        });
+    </script>
+}
